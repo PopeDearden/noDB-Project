@@ -13,6 +13,8 @@ app.use(express.json())
 
 // ENDPOINTS
 app.get('/api/ingredients', ingredientsCtrl.getIngredients)
-
-
-app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} things be happening`))
+app.get('/api/savedburgers', ingredientsCtrl.getBurgers)
+app.post('/api/ingredients', ingredientsCtrl.buildBurger)
+app.delete('/api/ingredients/:id', ingredientsCtrl.deleteItem)
+app.post('/api/saveburger', ingredientsCtrl.saveBurger)
+app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} burgers being made`))
