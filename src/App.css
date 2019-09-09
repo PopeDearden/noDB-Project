@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower|Sacramento&display=swap');
+
+body {
+  background-color:#FFFFEF;
+}
 .TopPart {
   display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: center;
-	/* align-content: flex-end; */
+	justify-content: space-between;
+  /* align-items: center; */
+  /* align-content: flex-end; */
+  color: white;
+  text-align: center;
 }
 
 
@@ -19,31 +26,71 @@
   margin: 20px;
 }
 .IndividualIngredient button {
-  max-width: 50px;
+  max-width: auto;
   max-height: 30px;
   margin: 20px;
+  color:black;
+  background-color: #F7F59D;
+  border: none;
+  border-radius: 7px;
+  padding: .5rem 1rem;
+  border: solid;
+  font-weight: 700;
+  font-size: .8rem;
 }
 .BurgerBuild img{
   margin-top: -50px;
-  max-width: 200px;
+  max-width: 15vw;
 }
 .burgerBuild h1 {
   margin: 100px;
-
-}
-.BurgerBuild {
-  display: flex;
-  flex-direction: column-reverse;
- align-content: center;
   
 }
+.BurgerButtons {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  
+}
+.BurgerIngredients {
+  display: flex;
+  flex-direction: column-reverse;
+  align-content: center;
+  justify-content: flex-start;
+} 
+.BurgerBuild{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+  align-content: center;
+  height: 64vh;
+}
+
+.BurgerBuild button {
+  max-width: auto;
+  max-height: 30px;
+  margin: 20px;
+  color:black;
+  background-color: #F7F59D;
+  border: none;
+  border-radius: 7px;
+  padding: .5rem 1rem;
+  border: solid;
+  font-weight: 700;
+  font-size: .8rem;
+}
+
 .SavedBurgers {
-color: black;
-display: flex;
-flex-direction: row;
-background-color: darkgray;
-justify-content: space-around;
-flex-wrap: wrap;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  background-color:#F5F4DB;
+  background-color: ;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .BurgerCollection {
@@ -51,10 +98,79 @@ flex-wrap: wrap;
   border: solid;
   margin: 20px;
   padding: 10px;
+  background-color:#FFFFFF;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size:20px;
+}
+.BurgerCollection button {
+  max-width: auto;
+  max-height: 30px;
+  margin: 20px;
+  color:black;
+  background-color: #F7F59D;
+  border: none;
+  border-radius: 7px;
+  padding: .5rem 1rem;
+  border: solid;
+  font-weight: 700;
+  font-size: .8rem;
+
 }
 .GetRecipie {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 200px;
+  justify-content:flex-end;
+  /* margin-right: px; */
   margin-bottom: 20px;
+}
+.GetRecipie button {
+  min-width: 350px;
+  max-height: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color:black;
+  background-color: #F7F59D;
+  border: none;
+  border-radius: 7px;
+  padding: .5rem 1rem;
+  border: solid;
+  font-weight: 700;
+  font-size: .8rem;
+}
+
+.LeftSide {
+  /* margin-top: 5vh; */
+  background-color:#F5F4DB;
+  border: 4mm ridge #D6D5D3;
+  color: black;
+  min-height: 64vh;
+  max-width: 30vw;
+  font-family: 'Indie Flower', cursive;
+
+}
+.RightSide {
+  padding: 50px;
+  background-color:#F5F4DB;
+  border: 4mm ridge #D6D5D3;
+  color: black;
+  max-width: 30vw;
+}
+
+.Middle {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: black;
+  height: 64vh;
+  max-width: 30vw;
+  text-align: left;
+  font-size: 1.25rem;
+  font-family: 'Indie Flower', cursive;
+}
+
+header h1 {
+color: Black;
+text-align: center;
+font-family: 'Sacramento', cursive;
+font-size: 50px;
 }

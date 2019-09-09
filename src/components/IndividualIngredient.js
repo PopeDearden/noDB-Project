@@ -1,28 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 import lettuce from './images/lettuce1.png'
 import bottombun from './images/bottombun1.png'
 import tomato from './images/tomato1.png'
 import topbun from './images/topbun1.png'
 import meat from './images/meat.png'
+import magic from './images/magicsaucedisplay.png'
 import test from './images/secondtest.png'
 
-export default class IndividualIngredient extends Component {
+const IndividualIngredient =(props)=> {
 
-  render() {
   
+  const {name} = props.ingredientData
     return (
       <div className='IndividualIngredient'>
-       <img src= {this.props.ingredientData.name === 'lettuce' ? lettuce
-            : this.props.ingredientData.name === 'tomato' ? tomato
-            : this.props.ingredientData.name === 'bottom bun' ? bottombun
-            : this.props.ingredientData.name === 'top bun' ? topbun
-            : this.props.ingredientData.name === 'meat' ? meat
+       <img src= {name === 'lettuce' ? lettuce
+            : name === 'tomato' ? tomato
+            : name === 'bottom bun' ? bottombun
+            : name === 'top bun' ? topbun
+            : name === 'meat' ? meat
+            : name === 'magic sauce' ? magic
             : test } 
-          alt={this.props.ingredientData.name}/>
-        <button onClick = {()=>this.props.addIngredient(this.props.ingredientData)}>add</button>
+          alt={name}/>
+        <button onClick = {()=>props.addIngredient(props.ingredientData)}>add {name}</button>
           
       </div>
 
     )
-  }
+  
 }
+export default IndividualIngredient

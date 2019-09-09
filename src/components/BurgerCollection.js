@@ -1,11 +1,4 @@
 import React, { Component } from 'react'
-// import IngredientList from './IngredientList'
-// import lettuce from './images/lettuce1.png'
-// import bottombun from './images/bottombun1.png'
-// import tomato from './images/tomato1.png'
-// import topbun from './images/topbun1.png'
-// import meat from './images/meat.png'
-// import test from './images/secondtest.png'
 
 export default class BurgerCollection extends Component {
     constructor() {
@@ -28,7 +21,7 @@ export default class BurgerCollection extends Component {
       }
     
     render() {
-
+        const {ingredients, name} = this.props.burgers
         return (
             <div className='BurgerCollection'>
                 {this.state.editToggle ? (
@@ -40,10 +33,10 @@ export default class BurgerCollection extends Component {
                         <button onClick={() => this.toggle()}>Cancel</button>
                     </div>
                 ) : (
-                        <h1 onDoubleClick={() => this.toggle()}>{this.props.burgers.name}</h1>
+                        <h1 onDoubleClick={() => this.toggle()}>{name}</h1>
                     )}
                
-                <ol>{this.props.burgers.ingredients.map((el, index) => (
+                <ol>{ingredients.map((el, index) => (
                     <li key={index}> {el.name}
                     </li>
 

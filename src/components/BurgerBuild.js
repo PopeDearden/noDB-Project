@@ -13,17 +13,27 @@ export default class BurgerBuild extends Component {
     saveBurger(body) {
         axios.post('api/saveburger', body).then(res => {
             this.setState({ savedBurgers: res.data })
-
+            
             // console.log (this.state.savedBurgers)
+        }).catch(error => {
+            alert('thing didnt work')
         })
+        this.props.clearBurger()
     }
+    
 
 
     render() {
 
         return (
             <div className='BurgerBuild'>
-            <button onClick={()=>this.saveBurger(this.props.burgerBuild)}>saveBurger</button>
+                    {/* <h1>Burger Maker:</h1> */}
+                <div className='BurgerButtons'>
+            <button onClick={()=>this.saveBurger(this.props.burgerBuild)}>Save</button>
+            <button onClick={()=>this.props.clearBurger()}>Clear</button>
+                </div>
+                <div className='BurgerIngredients'>
+
                 {this.props.burgerBuild.map((el, index) => {
                     // console.log(el)
                     return <BurgerBuilder
@@ -33,7 +43,7 @@ export default class BurgerBuild extends Component {
                 }
                 )
                 }
-                {/* {console.log(this.props.burgerBuild)} */}
+                </div>
 
             </div>
         )

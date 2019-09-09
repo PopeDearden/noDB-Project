@@ -1,28 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
 import lettuce from './images/lettuce1.png'
 import bottombun from './images/bottombun1.png'
 import tomato from './images/tomato1.png'
 import topbun from './images/topbun1.png'
 import meat from './images/meat.png'
 import test from './images/secondtest.png'
+import magic from './images/magicsauce.png'
 
-export default class BurgerBuilder extends Component {
-
-  render() {
+const BurgerBuilder = (props)=> {
   
     return (
       <div className='BurgerBuilder'>
-       <img  onClick={()=>this.props.clearBurgerItem(this.props.burgerBuild.id)}
-        src= {this.props.burgerBuild.name === 'lettuce' ? lettuce
-            : this.props.burgerBuild.name === 'tomato' ? tomato
-            : this.props.burgerBuild.name === 'bottom bun' ? bottombun
-            : this.props.burgerBuild.name === 'top bun' ? topbun
-            : this.props.burgerBuild.name === 'meat' ? meat
+       <img  onClick={()=>props.clearBurgerItem(props.burgerBuild.id)}
+        src= {props.burgerBuild.name === 'lettuce' ? lettuce
+            : props.burgerBuild.name === 'tomato' ? tomato
+            : props.burgerBuild.name === 'bottom bun' ? bottombun
+            : props.burgerBuild.name === 'top bun' ? topbun
+            : props.burgerBuild.name === 'meat' ? meat
+            : props.burgerBuild.name === 'magic sauce' ? magic
             : test } 
-          alt={this.props.burgerBuild.name}/>
+          alt={props.burgerBuild.name}/>
           
       </div>
 
     )
-  }
 }
+export default BurgerBuilder

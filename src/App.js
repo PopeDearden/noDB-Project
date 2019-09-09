@@ -15,6 +15,7 @@ export default class App extends Component {
     // this.getIngredients = this.getIngredients.bind(this)
     this.addIngredient = this.addIngredient.bind(this)
     this.clearBurgerItem = this.clearBurgerItem.bind(this)
+    this.clearBurger = this.clearBurger.bind(this)
   }
 
   componentDidMount() {
@@ -30,8 +31,12 @@ export default class App extends Component {
     })
     // console.log(this.state.burgerBuild)
   }
- 
- 
+  clearBurger() {
+    axios.delete(`/api/clearedBurger`).then(res => {
+      this.setState({ burgerBuild: res.data })
+    })
+    console.log('cleared')
+}
 
   clearBurgerItem(id) {
     // console.log(id)
@@ -43,13 +48,35 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <header>
+          <h1>Le Holy Hamburger Maker</h1>
+        </header>
         <div className="TopPart">
+          <div className="LeftSide">
           <IngredientDisplay
             ingredients={this.state.ingredients}
             addIngredient={this.addIngredient} />
+          </div>
+          <div className="Middle">
+            <h1>Instructions</h1>
+            <ol>
+              <li>Select ingredients from ingredient bar on the left side.</li>
+              <li>Build Burger in order from bottom up.</li>
+              <li>To remove ingredient form burger, click directly on the ingredient in the burger building display to the right. To clear the entire burger, select clear.</li>
+              <li>When done, click "save".</li>
+              <li>Select "Get Recipe" to view recipes of burgers you've made, scroll down to view.</li>
+              <li>Select Burger title to edit name.</li>
+            </ol>
+            <h3>*Magic sauce, inherently has mystical properties that produce whatever flavor you desire. For example: pickles, ketchup, mustard, Dr Pepper, hot sauce, onions, all your wildest dreams! </h3>
+          </div>
+          <div className ="RightSide">
+
           <BurgerBuild
+            clearBurger={this.clearBurger}
             burgerBuild={this.state.burgerBuild}
             clearBurgerItem={this.clearBurgerItem} />
+            </div>
+            
 
         </div>
         <SavedBurgerDisplay

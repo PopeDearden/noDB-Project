@@ -29,5 +29,10 @@ let data =[
         value: .50,
         // id:500
     },
+    {
+        name: 'magic sauce',
+        imageURL: 'magic sauce',
+        value: 10000,
+    }
 ]
 module.exports = data
