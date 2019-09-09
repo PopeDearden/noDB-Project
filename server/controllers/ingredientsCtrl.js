@@ -29,7 +29,8 @@ module.exports = {
   saveBurger:(req,res) =>{
     const savedBurger= {
       name: `Burger ${++burgerCounter}`,
-      ingredients: req.body
+      ingredients: req.body,
+      id: ++burgerCounter
     }
     savedBurgers.push(savedBurger)
     console.log(savedBurgers)
@@ -37,6 +38,13 @@ module.exports = {
   },
   getBurgers: (req, res) => {
     res.status(200).send(savedBurgers)
-  }
+  },
+  updateBurger: (req, res) => {
+    const {id} = req.params
+    const {newName} = req.body
+    const index = savedBurgers.findIndex(el => el.id === +id) // find the index of the pokemon with the id we give
+    savedBurgers[index].name = newName
+    res.status(200).send(savedBurgers)
+}
 }
 

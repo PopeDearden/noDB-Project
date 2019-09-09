@@ -14,6 +14,8 @@ export default class SavedBurgerDisplay extends Component {
         this.state = {
             burgers: [],
         }
+        this.saveName = this.saveName.bind(this)
+        // this.refreshBurgers=this.refreshBurgers(this)
         //   this.loadBurgers = this.loadBurgers.bind(this)
     }
 
@@ -22,8 +24,15 @@ export default class SavedBurgerDisplay extends Component {
         axios.get('/api/savedburgers').then(res => {
             this.setState({ burgers: res.data })
             console.log(this.state.burgers)
+            console.log('refreshed')
         })
     }
+    saveName(id, body) {
+        axios.put(`/api/savedName/${id}`, body).then(res => {
+          this.setState({burgers: res.data})
+        })
+        this.refreshBurgers()
+      }
 
     render() {
 
@@ -39,6 +48,7 @@ export default class SavedBurgerDisplay extends Component {
                         <BurgerCollection
                             key={el.name}
                             burgers={el}
+                            saveFn={this.saveName}
                         />
                     ))}
                 </div>
