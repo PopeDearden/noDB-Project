@@ -42,7 +42,7 @@ module.exports = {
   updateBurger: (req, res) => {
     const { id } = req.params
     const { newName } = req.body
-    const index = savedBurgers.findIndex(el => el.id === +id) // find the index of the pokemon with the id we give
+    const index = savedBurgers.findIndex(el => el.id === +id) 
     savedBurgers[index].name = newName
     res.status(200).send(savedBurgers)
   },
@@ -50,6 +50,13 @@ module.exports = {
   clearBurger: (req, res) => {
     builtBurger.splice(0, builtBurger.length)
     res.status(200).send(builtBurger)
+  },
+  killBurger: (res, req) => {
+    const id= req.params
+    const index =savedBurgers.findIndex(el => el.id === +id) 
+    savedBurgers.splice(index, 1)
+    console.log('tried')
+  
   }
 }
 

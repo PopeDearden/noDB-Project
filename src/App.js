@@ -49,7 +49,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <header>
-          <h1>Le Holy Hamburger Maker</h1>
+          <h1>Le Holy Hamburger Originator</h1>
         </header>
         <div className="TopPart">
           <div className="LeftSide">
@@ -67,7 +67,7 @@ export default class App extends Component {
               <li>Select "Get Recipe" to view recipes of burgers you've made, scroll down to view.</li>
               <li>Select Burger title to edit name.</li>
             </ol>
-            <h3>*Magic sauce, inherently has mystical properties that produce whatever flavor you desire. For example: pickles, ketchup, mustard, Dr Pepper, hot sauce, onions, all your wildest dreams! </h3>
+            <h3>*Magic sauce, inherently has mystical properties that produce whatever flavor you desire. For example: pickles, ketchup, mustard, Dr Pepper, hot sauce, or onions. If you can dream it, the magic sauce can do it!</h3>
           </div>
           <div className ="RightSide">
 
