@@ -28,21 +28,22 @@ export default class SavedBurgerDisplay extends Component {
             console.log('refreshed')
         })
     }
+
     saveName(id, body) {
         axios.put(`/api/savedName/${id}`, body).then(res => {
-          this.setState({burgers: res.data})
+            this.setState({ burgers: res.data })
         })
         this.refreshBurgers()
-      }
-      deleteBurger(id) {
-          axios.delete(`api/ingredientsDead/${id}`).then(res => {
-              this.setState({burgers: res.data})
-          })
-          this.refreshBurgers()
-      }
-    
-    render() {
+    }
 
+    deleteBurger(id) {
+        axios.delete(`api/ingredientsDead/${id}`).then(res => {
+            this.setState({ burgers: res.data })
+        })
+        this.refreshBurgers()
+    }
+
+    render() {
         return (
             <div className='SavedBurgersRow'>
                 <div className='GetRecipie'>
@@ -53,7 +54,7 @@ export default class SavedBurgerDisplay extends Component {
 
                     {this.state.burgers.map(el => (
                         <BurgerCollection
-                            deleteBurger = {this.deleteBurger}
+                            deleteBurger={this.deleteBurger}
                             key={el.name}
                             burgers={el}
                             saveFn={this.saveName}
@@ -61,7 +62,6 @@ export default class SavedBurgerDisplay extends Component {
                     ))}
                 </div>
             </div>
-
         )
     }
 }
