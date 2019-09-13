@@ -11,21 +11,21 @@ import test from './images/secondtest.png'
 // can destructure in parameters and then use () for implicit return
 // also, alt shift f for autoformat
 const IndividualIngredient = ({ ingredientData: { name }, addIngredient, ingredientData }) => (
-    <div className='IndividualIngredient'>
-        <img
-            src={name === 'lettuce' ? lettuce
-                : name === 'tomato' ? tomato
-                    : name === 'bottom bun' ? bottombun
-                        : name === 'top bun' ? topbun
-                            : name === 'meat' ? meat
-                                : name === 'magic sauce' ? magic
-                                    : test}
-            alt={name}
-        />
-        <button onClick={() => addIngredient(ingredientData)}>
-            add {name}
-        </button>
-    </div>
+  <div className='IndividualIngredient'>
+    <img
+      src={name === 'lettuce' ? lettuce
+        : name === 'tomato' ? tomato
+          : name === 'bottom bun' ? bottombun
+            : name === 'top bun' ? topbun
+              : name === 'meat' ? meat
+                : name === 'magic sauce' ? magic
+                  : test}
+      alt={name}
+    />
+    <button onClick={() => addIngredient(ingredientData)}>
+      add {name}
+    </button>
+  </div>
 )
 
 export default IndividualIngredient

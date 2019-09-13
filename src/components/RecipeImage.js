@@ -13,18 +13,18 @@ import magic from './images/magicsauce.png'
 
 // console.log(`${props.ingredients.name}`)
 const RecipeImage = ({ ingredients: { name } }) => (
-    <div className='RecipeImage'>
-        <img
-            src={name === 'lettuce' ? lettuce
-                : name === 'tomato' ? tomato
-                    : name === 'bottom bun' ? bottombun
-                        : name === 'top bun' ? topbun
-                            : name === 'meat' ? meat
-                                : name === 'magic sauce' ? magic
-                                    : test}
-            alt={name}
-        />
-    </div>
+  <div className='RecipeImage'>
+    <img
+      src={name === 'lettuce' ? lettuce
+        : name === 'tomato' ? tomato
+          : name === 'bottom bun' ? bottombun
+            : name === 'top bun' ? topbun
+              : name === 'meat' ? meat
+                : name === 'magic sauce' ? magic
+                  : test}
+      alt={name}
+    />
+  </div>
 )
 
 export default RecipeImage
