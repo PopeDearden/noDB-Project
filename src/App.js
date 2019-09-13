@@ -13,39 +13,48 @@ export default class App extends Component {
       burgerBuild: [],
     }
     // this.getIngredients = this.getIngredients.bind(this)
-    this.addIngredient = this.addIngredient.bind(this)
-    this.clearBurgerItem = this.clearBurgerItem.bind(this)
-    this.clearBurger = this.clearBurger.bind(this)
+    // this.addIngredient = this.addIngredient.bind(this)
+    // this.clearBurgerItem = this.clearBurgerItem.bind(this)
+    // this.clearBurger = this.clearBurger.bind(this)
   }
 
   componentDidMount() {
-    axios.get('/api/ingredients').then(res => {
-      // console.log(res.data)
-      this.setState({ ingredients: res.data })
+    axios.get('/api/ingredients').then(({ data }) => {
+      // console.log(data)
+      this.setState({ ingredients: data })
     })
   }
 
-  addIngredient(body) {
-    axios.post('/api/ingredients', body).then(res => {
-      this.setState({ burgerBuild: res.data })
+  addIngredient = body => {
+    axios.post('/api/ingredients', body).then(({ data }) => {
+      this.setState({ burgerBuild: data })
     })
     // console.log(this.state.burgerBuild)
   }
-  clearBurger() {
-    axios.delete(`/api/clearedBurger`).then(res => {
-      this.setState({ burgerBuild: res.data })
+  clearBurger = () => {
+    axios.delete(`/api/clearedBurger`).then(({ data }) => {
+      this.setState({ burgerBuild: data })
     })
     console.log('cleared')
-}
+  }
 
-  clearBurgerItem(id) {
+  clearBurgerItem = id => {
     // console.log(id)
-    axios.delete(`/api/ingredients/${id}`).then(res => {
-      this.setState({ burgerBuild: res.data })
+    axios.delete(`/api/ingredients/${id}`).then(({ data }) => {
+      this.setState({ burgerBuild: data })
     })
   }
 
   render() {
+    const {
+      state: {
+        ingredients,
+        burgerBuild,
+      },
+      addIngredient,
+      clearBurger,
+      clearBurgerItem,
+    } = this;
     return (
       <div className="App">
         <header>
@@ -53,9 +62,9 @@ export default class App extends Component {
         </header>
         <div className="TopPart">
           <div className="LeftSide">
-          <IngredientDisplay
-            ingredients={this.state.ingredients}
-            addIngredient={this.addIngredient} />
+            <IngredientDisplay
+              ingredients={ingredients}
+              addIngredient={addIngredient} />
           </div>
           <div className="Middle">
             <h1>Instructions</h1>
@@ -69,15 +78,12 @@ export default class App extends Component {
             </ol>
             <h3>*Magic sauce, inherently has mystical properties that produce whatever flavor you desire. For example: pickles, ketchup, mustard, Dr Pepper, hot sauce, or onions. If you can dream it, the magic sauce can do it!</h3>
           </div>
-          <div className ="RightSide">
-
-          <BurgerBuild
-            clearBurger={this.clearBurger}
-            burgerBuild={this.state.burgerBuild}
-            clearBurgerItem={this.clearBurgerItem} />
-            </div>
-            
-
+          <div className="RightSide">
+            <BurgerBuild
+              clearBurger={clearBurger}
+              burgerBuild={burgerBuild}
+              clearBurgerItem={clearBurgerItem} />
+          </div>
         </div>
         <SavedBurgerDisplay
         />

@@ -7,22 +7,24 @@ import meat from './images/meat.png'
 import test from './images/secondtest.png'
 import magic from './images/magicsauce.png'
 
-const RecipeImage = (props)=> {
-  console.log(`${props.ingredients.name}`)
-    return (
-      <div className='RecipeImage'>
-       <img  
-        src= {props.ingredients.name === 'lettuce' ? lettuce
-            : props.ingredients.name === 'tomato' ? tomato
-            : props.ingredients.name === 'bottom bun' ? bottombun
-            : props.ingredients.name === 'top bun' ? topbun
-            : props.ingredients.name === 'meat' ? meat
-            : props.ingredients.name === 'magic sauce' ? magic
-            : test } 
-          alt={props.ingredients.name}/>
-          
-      </div>
+// This component and IndividualIngredient and BurgerBuild could all be made into a single component
+// you just have to add a className prop and a conditional button (for individual ingredient),
+// as well as an onclick (for burger build)
 
-    )
-}
+// console.log(`${props.ingredients.name}`)
+const RecipeImage = ({ ingredients: { name } }) => (
+  <div className='RecipeImage'>
+    <img
+      src={name === 'lettuce' ? lettuce
+        : name === 'tomato' ? tomato
+          : name === 'bottom bun' ? bottombun
+            : name === 'top bun' ? topbun
+              : name === 'meat' ? meat
+                : name === 'magic sauce' ? magic
+                  : test}
+      alt={name}
+    />
+  </div>
+)
+
 export default RecipeImage
