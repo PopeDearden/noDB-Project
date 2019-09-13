@@ -1,8 +1,8 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const {SERVER_PORT} = process.env
-const ingredientsCtrl = require ('./controllers/ingredientsCtrl')
+const { SERVER_PORT } = process.env
+const ingredientsCtrl = require('./controllers/ingredientsCtrl')
 // const ingredients = require('./data')
 
 
