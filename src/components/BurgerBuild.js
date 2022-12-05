@@ -27,7 +27,6 @@ export default class BurgerBuild extends Component {
 
         return (
             <div className='BurgerBuild'>
-                    {/* <h1>Burger Maker:</h1> */}
                 <div className='BurgerButtons'>
             <button onClick={()=>this.saveBurger(this.props.burgerBuild)}>Save</button>
             <button onClick={()=>this.props.clearBurger()}>Clear</button>
@@ -35,8 +34,8 @@ export default class BurgerBuild extends Component {
                 <div className='BurgerIngredients'>
 
                 {this.props.burgerBuild.map((el, index) => {
-                    // console.log(el)
                     return <BurgerBuilder
+                        level={index}
                         clearBurgerItem={this.props.clearBurgerItem}
                         key={index}
                         burgerBuild={el} />
