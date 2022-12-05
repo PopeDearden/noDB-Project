@@ -8,9 +8,8 @@ import test from './images/secondtest.png'
 import magic from './images/magicsauce.png'
 
 const RecipeImage = (props)=> {
-  console.log(`${props.ingredients.name}`)
     return (
-      <div className='RecipeImage'>
+      <div className='RecipeImage' style={{zIndex: `${props.key}`}}>
        <img  
         src= {props.ingredients.name === 'lettuce' ? lettuce
             : props.ingredients.name === 'tomato' ? tomato
